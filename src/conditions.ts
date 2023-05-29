@@ -13,7 +13,8 @@ export const LABELS = {
   'sunny': 'conditions.sunny',
   'windy': 'conditions.windy',
   'windy-variant': 'conditions.windy',
-  'exceptional': 'conditions.clear'
+  'exceptional': 'conditions.clear',
+  'night-partly-cloudy': 'conditions.partlyCloudyNight'
 };
 export const ICONS = {
   'clear-night': 'weather-night',
@@ -30,5 +31,6 @@ export const ICONS = {
   'sunny': 'sunny',
   'windy': 'windy',
   'windy-variant': 'windy-variant',
-  'exceptional': 'alert-outline'
+  'exceptional': 'alert-outline',
+  'night-partly-cloudy': 'night-partly-cloudy'
 };

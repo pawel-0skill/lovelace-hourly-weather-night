@@ -15,6 +15,7 @@ export const LABELS = {
   'windy-variant': 'conditions.windy',
   'exceptional': 'conditions.clear',
   'night-partly-cloudy': 'conditions.partlyCloudyNight'
+  // We'll see if this works.
 };
 export const ICONS = {
   'clear-night': 'weather-night',

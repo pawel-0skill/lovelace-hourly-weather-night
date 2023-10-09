@@ -23,16 +23,17 @@
     "speed_and_direction": "Vitesse et orientation",
     "barb_and_speed": "Comme barbe de vent et vitesse",
     "barb_and_direction": "Comme barbillon de vent et direction",
-    "barb_speed_and_direction": "Comme barbillon de vent, vitesse et direction"
+    "barb_speed_and_direction": "Comme barbillon de vent, vitesse et direction",
+    "show_date": "Afficher les dates",
+    "all": "Tous",
+    "on_day_boundaries": "Aux limites du jour"
   },
   "errors": {
     "missing_entity": "Entité manquante dans la configuration",
-    "daily_forecasts": "L'entité sélectionnée semble fournir des prévisions quotidiennes. Envisagez de passer à une entité fournissant des prévisions par heure.",
     "must_be_int": "Doit être un nombre entier pair supérieur ou égal à 2",
     "invalid_colors": "Les couleurs suivantes dans votre configuration ne sont pas valides :",
     "must_be_positive_int": "Doit être un entier positif",
     "too_many_segments_requested": "Trop de segments de prévision demandés dans num_segments. Doit être <= au nombre de segments de l'entité de prévision.",
-    "label_spacing_positive_even_int": "label_spacing doit être un entier pair supérieur ou égal à 2",
     "offset_must_be_positive_int": "offset doit être un entier positif",
     "forecast_not_available": "Prévision non disponible",
     "check_entity": "Vérifiez l'entité de prévision configurée.",

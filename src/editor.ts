@@ -59,7 +59,11 @@ export class HourlyWeatherCardEditor extends ScopedRegistryHost(LitElement) impl
   }
 
   get _show_wind(): WindType {
-    return this._config?.show_wind ?? 'false';
+    const showWind = this._config?.show_wind;
+    if (typeof showWind === 'boolean') {
+      return showWind ? 'true' : 'false';
+    }
+    return showWind ?? 'false';
   }
 
   get _show_precipitation_amounts(): boolean {
@@ -76,6 +80,10 @@ export class HourlyWeatherCardEditor extends ScopedRegistryHost(LitElement) impl
 
   get _labelSpacing(): string {
     return this._config?.label_spacing ?? '2';
+  }
+
+  get _show_date(): string {
+    return this._config?.show_date ?? 'false';
   }
 
   protected render(): TemplateResult | void {
@@ -112,11 +120,11 @@ export class HourlyWeatherCardEditor extends ScopedRegistryHost(LitElement) impl
         .configValue=${'num_segments'}
         @input=${this._valueChanged}
         .type=${'number'}
-        .min=${2}
-        .step=${2}
-        .pattern=${"([1-9][0-9]*[02468])|([2468])"}
+        .min=${1}
+        .step=${1}
+        .pattern=${"[1-9][0-9]*"}
         .autoValidate=${true}
-        validationMessage=${localize('errors.must_be_int')}
+        validationMessage=${localize('errors.must_be_positive_int')}
       ></mwc-textfield>
       <mwc-textfield
       label=${localize('editor.offset')}
@@ -134,11 +142,11 @@ export class HourlyWeatherCardEditor extends ScopedRegistryHost(LitElement) impl
         .configValue=${'label_spacing'}
         @input=${this._valueChanged}
         .type=${'number'}
-        .min=${2}
-        .step=${2}
-        .pattern=${"([1-9][0-9]*[02468])|([2468])"}
+        .min=${1}
+        .step=${1}
+        .pattern=${"[1-9][0-9]*"}
         .autoValidate=${true}
-        validationMessage=${localize('errors.must_be_int')}
+        validationMessage=${localize('errors.must_be_positive_int')}
       ></mwc-textfield>
       <mwc-formfield .label=${localize('editor.icons')}>
         <mwc-switch
@@ -165,6 +173,20 @@ export class HourlyWeatherCardEditor extends ScopedRegistryHost(LitElement) impl
         <mwc-list-item value="barb-and-speed">${localize('editor.barb_and_speed')}</mwc-list-item>
         <mwc-list-item value="barb-and-direction">${localize('editor.barb_and_direction')}</mwc-list-item>
         <mwc-list-item value="barb-speed-and-direction">${localize('editor.barb_speed_and_direction')}</mwc-list-item>
+      </mwc-select>
+      <mwc-select
+        naturalMenuWidth
+        fixedMenuPosition
+        label=${localize('editor.show_date')}
+        .configValue=${'show_date'}
+        .value=${this._show_date}
+        @selected=${this._valueChanged}
+        @closed=${(ev) => ev.stopPropagation()}
+      >
+        <mwc-list-item></mwc-list-item>
+        <mwc-list-item value="false">${localize('editor.none')}</mwc-list-item>
+        <mwc-list-item value="all">${localize('editor.all')}</mwc-list-item>
+        <mwc-list-item value="boundary">${localize('editor.on_day_boundaries')}</mwc-list-item>
       </mwc-select>
       <mwc-formfield .label=${localize('editor.show_precipitation_amounts')}>
         <mwc-switch

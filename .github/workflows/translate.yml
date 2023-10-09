@@ -10,7 +10,7 @@ jobs:
     name: translate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install localization package
         run: npm install -g i18n-auto-translation
 
@@ -22,7 +22,7 @@ jobs:
             subscriptionKey: '${{ secrets.TRANSLATOR_SUBSCRIPTION_KEY }}'
             filePath: './src/localize/languages/en.json'
             from: 'en'
-            to: 'de,es,fr,hu,it,nb,nl,pl,pt'
+            to: 'da,de,es,fr,hu,it,nb,nl,pl,pt,sk'
             debug: false
 
       - name: Copy new strings to sub-locales
